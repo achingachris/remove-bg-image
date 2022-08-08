@@ -1,67 +1,48 @@
-# MERNSHOP
+<p align="center">
+  <a href="https://www.gatsbyjs.com">
+    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
+  </a>
+</p>
+<h1 align="center">
+   Gatsby Bootstrap 5 starter
+</h1>
 
-![banner](airshopNext.png)
 
-## Server:
+Minimal bootstrap 5 and Gatsby configuration with SCSS support. 
 
-Directory: [server/](/server/)
+Demo here : https://gatsbystarterbootstrap5.gatsbyjs.io/
 
-## Client
+## 📋 Available options
 
-Directory: [client/](/client/)
+- You can theme bootstrap via `src/components/layout.scss`
 
-## Preparing For Deployment
+## 🚀 How to install
 
-Environment configurations:
+Use the Gatsby CLI to create a new site. 
 
-```env
-JWT_SECRET = 'secret'
-MONGO_URI = 'mongodb_uri'
-NODE_ENV = 'development'
-PAYPAL_CLIENT_ID = 'paypal_id'
-PORT = 5000
+```shell
+# create a new Gatsby site using the default starter
+gatsby new gatsby-starter-bootstrap-5 https://github.com/r-ichard/gatsby-starter-bootstrap-5
 ```
 
-Change the NODE_ENV = 'development' to NODE_ENV = 'production' to run in production mode.
 
-Create a build directory in the client directory,
+## ✏️ How to develop locally
 
-    $ npm run build
+1.  Navigate into your new site’s directory and start it up.
 
-Esure you have the code, in your `app.js` in the server directory:
+    ```shell
+    cd gatsby-starter-bootstrap-5/
+    gatsby develop
+    ```
 
-```js
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '/client/build')))
+1.  **Open the source code and start editing!**
 
-  app.get('*', (req, res) =>
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
-  )
-} else {
-  app.get('/', (req, res) => {
-    res.send('API is running....')
-  })
-}
-```
+    Your site is now running at `http://localhost:8000`!
 
-Run the server in production mode(simulator):
+    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.com/tutorial/part-five/#introducing-graphiql)._
 
-    $ npm start
+    Open the `gatsby-starter-bootstrap-5` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
 
-## Deploying to Heroku
+## 💡 How to contribute 
 
-On the root, create a `Procfile` file:
-
->Tells heroku how to run the project on the server.
-
-Add the following to the file:
-
-    $ web: node server/app.js
-
-Create a `heroku-postbuild` script in `package.json`:
-
-    $ "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
-
-Add environment variables to Heroku's Config Vars.
-
-
+Any feedback is welcome and helpful.
